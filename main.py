@@ -26,6 +26,28 @@ def create_tree_structure(root: str) -> None:
                     f"{root}/{year}/{month}/{day}/other",
                     exist_ok=True,
                 )
+                makedirs(
+                    f"{root}/{year}/{month}/{day}/archives",
+                    exist_ok=True,
+                )
+                makedirs(
+                    f"{root}/{year}/{month}/{day}/web",
+                    exist_ok=True,
+                )
+                makedirs(
+                    f"{root}/{year}/{month}/{day}/data",
+                    exist_ok=True,
+                )
+
+                makedirs(
+                    f"{root}/{year}/{month}/{day}/music",
+                    exist_ok=True,
+                )
+
+                makedirs(
+                    f"{root}/{year}/{month}/{day}/text",
+                    exist_ok=True,
+                )
 
 
 def move_file_to_tree(file_path: str, root: str) -> None:
@@ -44,6 +66,24 @@ def move_file_to_tree(file_path: str, root: str) -> None:
         "xls": ("documents", "doc"),
         "xlsx": ("documents", "doc"),
         "epub": ("documents", "doc"),
+        "mp4": ("videos", "vid"),
+        "mov": ("videos", "vid"),
+        "zip": ("archives", "arc"),
+        "rar": ("archives", "arc"),
+        "7z": ("archives", "arc"),
+        "tar": ("archives", "arc"),
+        "gz": ("archives", "arc"),
+        "mp3": ("music", "mus"),
+        "wav": ("music", "mus"),
+        "flac": ("music", "mus"),
+        "txt": ("text", "txt"),
+        "rtf": ("text", "txt"),
+        "html": ("web", "web"),
+        "css": ("web", "web"),
+        "js": ("web", "web"),
+        "json": ("data", "data"),
+        "csv": ("data", "data"),
+        "xml": ("data", "data"),
     }
 
     folder, prefix = folder_map.get(file_ext.lower(), ("other", "opt"))
