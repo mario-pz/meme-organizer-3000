@@ -1,0 +1,50 @@
+= Meme Organizer 3000
+
+= What does it do
+The script scans your root directory for a file named tree-cert.txt, and if it doesn't find it, 
+it creates a meticulously organized file tree structure in that directory. Say goodbye to the frustration of manual
+file organization and hello to effortless, organized productivity. 
+
+[source]
+----
+root/
++-- starting_year/
+|   +-- 1/  <-- Month
+|   |   +-- 1/ <-- Day
+|   |   |   +-- images/
+|   |   |   +-- videos/
+|   |   |   +-- documents/
+|   |   |   +-- other/
+|   |   |   +-- archives/
+|   |   |   +-- web/
+|   |   |   +-- data/
+|   |   |   +-- music/
+|   |   |   +-- text/
+|   |   +-- 2/
+|   |   |   +-- ...
+|   |   +-- ...
+|   +-- ...
++-- ...
++-- current_year/
+    +-- 1/
+    |   +-- 1/
+    |   |   +-- images/
+    |   |   +-- videos/
+    |   |   +-- documents/
+    |   |   +-- other/
+    |   |   +-- archives/
+    |   |   +-- web/
+    |   |   +-- data/
+    |   |   +-- music/
+    |   |   +-- text/
+    |   +-- ...
+    +-- ...
+----
+
+
+= Warning
+No matter how many use cases I fit there are still more.
+If you run this script in a multi topic vault the chance to merge your sus stuff with memes its very luckily happening.
+
+= License 
+This project is signed under LGPLv2

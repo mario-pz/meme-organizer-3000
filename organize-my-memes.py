@@ -3,6 +3,50 @@ from os import makedirs, path, rename
 from shutil import move
 from os import walk, listdir, rmdir
 from calendar import monthrange
+from typing import Tuple
+from sys import argv
+
+
+def get_use_cases() -> dict[str, Tuple[str, str]]:
+    return {
+        "jpg": ("images", "img"),
+        "png": ("images", "img"),
+        "jpeg": ("images", "img"),
+        "pdf": ("documents", "doc"),
+        "doc": ("documents", "doc"),
+        "docx": ("documents", "doc"),
+        "ppt": ("documents", "doc"),
+        "pptx": ("documents", "doc"),
+        "xls": ("documents", "doc"),
+        "xlsx": ("documents", "doc"),
+        "epub": ("documents", "doc"),
+        "mp4": ("videos", "vid"),
+        "mov": ("videos", "vid"),
+        "zip": ("archives", "arc"),
+        "rar": ("archives", "arc"),
+        "7z": ("archives", "arc"),
+        "tar": ("archives", "arc"),
+        "gz": ("archives", "arc"),
+        "mp3": ("music", "mus"),
+        "wav": ("music", "mus"),
+        "flac": ("music", "mus"),
+        "txt": ("text", "txt"),
+        "rtf": ("text", "txt"),
+        "html": ("web", "web"),
+        "css": ("web", "web"),
+        "js": ("web", "web"),
+        "json": ("data", "data"),
+        "csv": ("data", "data"),
+        "xml": ("data", "data"),
+    }
+
+
+def clean_empty_dirs(directory: str):
+    for dir_name in listdir(directory):
+        dir_path = path.join(directory, dir_name)
+        if path.isdir(dir_path) and not listdir(dir_path):
+            print(f"Deleting empty directory: {dir_path}")
+            rmdir(dir_path)
 
 
 def create_tree_structure(root: str) -> None:
@@ -54,37 +98,7 @@ def move_file_to_tree(file_path: str, root: str) -> None:
     file_name = path.basename(file_path)
     file_ext = file_path.split(".")[-1]
 
-    folder_map = {
-        "jpg": ("images", "img"),
-        "png": ("images", "img"),
-        "jpeg": ("images", "img"),
-        "pdf": ("documents", "doc"),
-        "doc": ("documents", "doc"),
-        "docx": ("documents", "doc"),
-        "ppt": ("documents", "doc"),
-        "pptx": ("documents", "doc"),
-        "xls": ("documents", "doc"),
-        "xlsx": ("documents", "doc"),
-        "epub": ("documents", "doc"),
-        "mp4": ("videos", "vid"),
-        "mov": ("videos", "vid"),
-        "zip": ("archives", "arc"),
-        "rar": ("archives", "arc"),
-        "7z": ("archives", "arc"),
-        "tar": ("archives", "arc"),
-        "gz": ("archives", "arc"),
-        "mp3": ("music", "mus"),
-        "wav": ("music", "mus"),
-        "flac": ("music", "mus"),
-        "txt": ("text", "txt"),
-        "rtf": ("text", "txt"),
-        "html": ("web", "web"),
-        "css": ("web", "web"),
-        "js": ("web", "web"),
-        "json": ("data", "data"),
-        "csv": ("data", "data"),
-        "xml": ("data", "data"),
-    }
+    folder_map = get_use_cases()
 
     folder, prefix = folder_map.get(file_ext.lower(), ("other", "opt"))
 
@@ -126,13 +140,8 @@ def main(directory: str) -> None:
     clean_empty_dirs(root_directory)
 
 
-def clean_empty_dirs(directory: str):
-    for dir_name in listdir(directory):
-        dir_path = path.join(directory, dir_name)
-        if path.isdir(dir_path) and not listdir(dir_path):
-            print(f"Deleting empty directory: {dir_path}")
-            rmdir(dir_path)
-
-
 if __name__ == "__main__":
-    main(".")
+    if len(argv) > 2:
+        main(argv[2])
+    else:
+        main(".")
