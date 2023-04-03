@@ -1,0 +1,117 @@
+[use_cases]
+
+[[use_cases.jpg]]
+type = "images"
+prefix = "img"
+
+[[use_cases.png]]
+type = "images"
+prefix = "img"
+
+[[use_cases.jpeg]]
+type = "images"
+prefix = "img"
+
+[[use_cases.pdf]]
+type = "documents"
+prefix = "doc"
+
+[[use_cases.doc]]
+type = "documents"
+prefix = "doc"
+
+[[use_cases.docx]]
+type = "documents"
+prefix = "doc"
+
+[[use_cases.ppt]]
+type = "documents"
+prefix = "doc"
+
+[[use_cases.pptx]]
+type = "documents"
+prefix = "doc"
+
+[[use_cases.xls]]
+type = "documents"
+prefix = "doc"
+
+[[use_cases.xlsx]]
+type = "documents"
+prefix = "doc"
+
+[[use_cases.epub]]
+type = "documents"
+prefix = "doc"
+
+[[use_cases.mp4]]
+type = "videos"
+prefix = "vid"
+
+[[use_cases.mov]]
+type = "videos"
+prefix = "vid"
+
+[[use_cases.zip]]
+type = "archives"
+prefix = "arc"
+
+[[use_cases.rar]]
+type = "archives"
+prefix = "arc"
+
+[[use_cases.7z]]
+type = "archives"
+prefix = "arc"
+
+[[use_cases.tar]]
+type = "archives"
+prefix = "arc"
+
+[[use_cases.gz]]
+type = "archives"
+prefix = "arc"
+
+[[use_cases.mp3]]
+type = "music"
+prefix = "mus"
+
+[[use_cases.wav]]
+type = "music"
+prefix = "mus"
+
+[[use_cases.flac]]
+type = "music"
+prefix = "mus"
+
+[[use_cases.txt]]
+type = "text"
+prefix = "txt"
+
+[[use_cases.rtf]]
+type = "text"
+prefix = "txt"
+
+[[use_cases.html]]
+type = "web"
+prefix = "web"
+
+[[use_cases.css]]
+type = "web"
+prefix = "web"
+
+[[use_cases.js]]
+type = "web"
+prefix = "web"
+
+[[use_cases.json]]
+type = "data"
+prefix = "data"
+
+[[use_cases.csv]]
+type = "data"
+prefix = "data"
+
+[[use_cases.xml]]
+type = "data"
+prefix = "data"

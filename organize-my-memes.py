@@ -6,39 +6,12 @@ from calendar import monthrange
 from typing import Tuple
 from sys import argv
 
+from toml import load as tload
+
 
 def get_use_cases() -> dict[str, Tuple[str, str]]:
-    return {
-        "jpg": ("images", "img"),
-        "png": ("images", "img"),
-        "jpeg": ("images", "img"),
-        "pdf": ("documents", "doc"),
-        "doc": ("documents", "doc"),
-        "docx": ("documents", "doc"),
-        "ppt": ("documents", "doc"),
-        "pptx": ("documents", "doc"),
-        "xls": ("documents", "doc"),
-        "xlsx": ("documents", "doc"),
-        "epub": ("documents", "doc"),
-        "mp4": ("videos", "vid"),
-        "mov": ("videos", "vid"),
-        "zip": ("archives", "arc"),
-        "rar": ("archives", "arc"),
-        "7z": ("archives", "arc"),
-        "tar": ("archives", "arc"),
-        "gz": ("archives", "arc"),
-        "mp3": ("music", "mus"),
-        "wav": ("music", "mus"),
-        "flac": ("music", "mus"),
-        "txt": ("text", "txt"),
-        "rtf": ("text", "txt"),
-        "html": ("web", "web"),
-        "css": ("web", "web"),
-        "js": ("web", "web"),
-        "json": ("data", "data"),
-        "csv": ("data", "data"),
-        "xml": ("data", "data"),
-    }
+    with open("config.toml", "r") as file:
+        return tload(file)
 
 
 def clean_empty_dirs(directory: str):
@@ -120,6 +93,10 @@ def move_file_to_tree(file_path: str, root: str) -> None:
 def main(directory: str) -> None:
     root_directory = directory
     tree_sert_file = path.join(root_directory, "tree-cert.txt")
+
+
+    print(get_use_cases())
+    return
 
     if not path.exists(tree_sert_file):
         create_tree_structure(root_directory)
