@@ -1,4 +1,11 @@
+starting_age=2019
+
 [use_cases]
+
+# How to add a use case 
+# [[use_cases.extension]]
+# type = "dir-name" <- reproduces this directory /yy/mm/dd/dir-name
+# prefix = "prefix-name" <- that directory will have files with this prefix in front of them
 
 [[use_cases.jpg]]
 type = "images"
